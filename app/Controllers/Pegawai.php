@@ -35,8 +35,8 @@ class Pegawai extends BaseController
         // call fungsi, show absensi only for 1 guy
         // $data_pegawai = $this->PegawaiModel->getDataForOnePegawai2($id);
         $data_pegawai = $this->PegawaiModel->getPegCountSelisih($id);
-        dd($data_pegawai);
-
+        // dd($data_pegawai);
+  
         // foreach ($data_pegawai as $dp) {
         // for ($i = 0; $i < count($data_pegawai); $i++) {
         //     // $wmasuknix = strtotime($data_pegawai[$i]['waktu_masuk']) - $wmasuk;
