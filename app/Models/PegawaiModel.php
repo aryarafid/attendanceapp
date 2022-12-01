@@ -65,6 +65,33 @@ class PegawaiModel extends Model
         return $sql;
     }
 
+    public function getPeg3($id)         //pake data selisih buat bantu hitung menit2annya
+    {
+        $db = \Config\Database::connect();
+        $sql = "SELECT a.id_absensi,
+        a.id_pegawai,
+        p.nama_pegawai,
+        a.tanggal_absen,
+        a.waktu_masuk,
+        a.waktu_pulang,
+                if(a.waktu_masuk > '08:00:00', TRUE, FALSE) AS 'telat',
+                if(a.waktu_pulang < '17:00:00', TRUE, FALSE) AS 'pulang_cepat',
+                if(a.waktu_pulang > '17:00:00', TRUE, FALSE) AS 'lembur',
+              TIMEDIFF(a.waktu_masuk, '08:00:00') AS 'selisih waktu masuk', TIMEDIFF(a.waktu_pulang, '17:00:00') AS 
+                 'selisih wkt pulang'
+        
+        from absensi a join
+             pegawai p
+             ON a.id_pegawai = p.id_pegawai
+        WHERE p.id_pegawai=:id:";
+        $sql =
+            $db->query($sql, [
+                'id'   => $id
+            ]);
+        $sql = $sql->getResultArray();
+        return $sql;
+    }
+
     public function countThree($data)               //count menit telat, lembur, pulang cepat
     {
         //$data['swm']      //waktu masuk - string

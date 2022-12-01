@@ -28,35 +28,9 @@ class Pegawai extends BaseController
 
     public function pegawai_detail($id)
     {
-        // show detail pegawai, crud pegawai, dan crud absensi hanya 1 pegawai ini saja
-        // $wmasuknix = array();
-        // $wkeluarnix = array();
+        $data_pegawai = $this->PegawaiModel->getPeg3($id);
+        dd($data_pegawai);
 
-        // call fungsi, show absensi only for 1 guy
-        // $data_pegawai = $this->PegawaiModel->getDataForOnePegawai2($id);
-        $data_pegawai = $this->PegawaiModel->getPegCountSelisih($id);
-        // dd($data_pegawai);
-  
-        // foreach ($data_pegawai as $dp) {
-        // for ($i = 0; $i < count($data_pegawai); $i++) {
-        //     // $wmasuknix = strtotime($data_pegawai[$i]['waktu_masuk']) - $wmasuk;
-        //     // $wkeluarnix = strtotime($data_pegawai[$i]['waktu_pulang']) - $wkeluar;
-
-        //     $wmasuknix = array_map(function ($a) {
-        //         $wmasuk = strtotime('08:00:00');
-        //         return $a - $wmasuk;
-        //     }, $data_pegawai[$i]['waktu_masuk']);
-
-        //     $wkeluarnix = array_map(function ($a) {
-        //         $wkeluar = strtotime('17:00:00');
-        //         return $a - $wkeluar;
-        //     }, $data_pegawai[$i]['waktu_pulang']);
-        // };
-
-        // }
-
-        // d($wmasuknix);
-        // dd($wkeluarnix);
         
         $data = [
             'title' => "Detail Pegawai",
