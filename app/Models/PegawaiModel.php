@@ -77,8 +77,8 @@ class PegawaiModel extends Model
                 if(a.waktu_masuk > '08:00:00', TRUE, FALSE) AS 'telat',
                 if(a.waktu_pulang < '17:00:00', TRUE, FALSE) AS 'pulang_cepat',
                 if(a.waktu_pulang > '17:00:00', TRUE, FALSE) AS 'lembur',
-              TIMEDIFF(a.waktu_masuk, '08:00:00') AS 'selisih waktu masuk', TIMEDIFF(a.waktu_pulang, '17:00:00') AS 
-                 'selisih wkt pulang'
+              TIMEDIFF(a.waktu_masuk, '08:00:00') AS 'swm', TIMEDIFF(a.waktu_pulang, '17:00:00') AS 
+                 'swp'
         
         from absensi a join
              pegawai p
@@ -92,19 +92,18 @@ class PegawaiModel extends Model
         return $sql;
     }
 
-    public function countThree($data)               //count menit telat, lembur, pulang cepat
+    public function countThree($data)              
     {
-        //$data['swm']      //waktu masuk - string
-        //$data['swp'']     //waktu pulang
+        //count menit telat, lembur, pulang cepat in a $data array
+
+        //kemungkinan - telat TRUE OR either pulcep OR lembur (telat v (pc v lemb))
 
 
+        //if telat = true   : swm covert masuk array telat
+        //if lembur = true  : swp covert masuk array lembur
+        //if pulcep = true  : swp covert masuk array pulcep
 
-
-        // telat : if swm > 08 00
-        // lembur : if swm > 17 00 
-        // pulcep : if swm < 17 00
-
-        // return type 
+        // return arr
 
     }
 }

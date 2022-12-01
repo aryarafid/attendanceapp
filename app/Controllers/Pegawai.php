@@ -28,7 +28,12 @@ class Pegawai extends BaseController
 
     public function pegawai_detail($id)
     {
-        $data_pegawai = $this->PegawaiModel->getPeg3($id);
+        
+        $data_pegawai = $this->PegawaiModel->getPegCountSelisih($id);
+
+        $data_pegawai2 = $this->PegawaiModel->getPeg3($id);
+        d($data_pegawai2);
+        
         dd($data_pegawai);
 
         
