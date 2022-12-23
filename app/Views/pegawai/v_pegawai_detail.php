@@ -30,8 +30,9 @@
                     <td></td> -->
                     <td>Jumlah Keterlambatan</td>
                     <td style="width: 1px">:</td>
-                    <td>menit</td>
+                    <td> <?= $sumtelat; ?> menit</td>
                 </tr>
+                
                 <tr>
                     <!-- <td>Nama Pegawai</td>
                     <td style="width: 1px">:</td>
@@ -41,12 +42,14 @@
 
                     <td>Jumlah Pulang Cepat</td>
                     <td style="width: 1px">:</td>
-                    <td>menit</td>
+                    <td> <?= $sumpulcep; ?> menit</td>
+
                 </tr>
                 <tr>
                     <td>Jumlah Lembur</td>
                     <td style="width: 1px">:</td>
-                    <td>menit</td>
+                    <td> <?= $sumlembur; ?> menit</td>
+
             </table>
         </div>
         <div class="col-3"></div>
