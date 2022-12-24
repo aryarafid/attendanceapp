@@ -48,24 +48,8 @@ class Pegawai extends BaseController
             $data_pegawai2[$i]['swp'] = preg_replace($pattern, "", $data_pegawai2[$i]['swp']);
         }
 
-        for ($i = 0; $i < count($data_pegawai2); $i++) {
-            if ($data_pegawai2[$i]['telat']) {
-                $time = explode(':', $data_pegawai2[$i]['swm']);
-                $wmm[$i] = ($time[0] * 60) + ($time[1]) + ($time[2] / 60);
-            } else if ($data_pegawai2[$i]['pulang_cepat']) {
-                $time2 = explode(':', $data_pegawai2[$i]['swp']);
-                $wmp[$i] = ($time2[0] * 60) + ($time2[1]) + ($time2[2] / 60);
-            } else if ($data_pegawai2[$i]['lembur']) {
-                // } else {
-                $time3 = explode(':', $data_pegawai2[$i]['swp']);
-                $wmp2[$i] = ($time3[0] * 60) + ($time3[1]) + ($time3[2] / 60);
-            }
-        }
-
-        
-
-        // foreach ($data_pegawai2 as $key => $value) {
-        //     if ($data_pegawai2[$key]['telat']) {
+        // for ($i = 0; $i < count($data_pegawai2); $i++) {
+        //     if ($data_pegawai2[$i]['telat']) {
         //         $time = explode(':', $data_pegawai2[$i]['swm']);
         //         $wmm[$i] = ($time[0] * 60) + ($time[1]) + ($time[2] / 60);
         //     } else if ($data_pegawai2[$i]['pulang_cepat']) {
@@ -77,6 +61,22 @@ class Pegawai extends BaseController
         //         $wmp2[$i] = ($time3[0] * 60) + ($time3[1]) + ($time3[2] / 60);
         //     }
         // }
+
+
+
+        foreach ($data_pegawai2 as $key => $value) {
+            if ($data_pegawai2[$key]['telat']) {
+                $time = explode(':', $data_pegawai2[$key]['swm']);
+                $wmm[$key] = ($time[0] * 60) + ($time[1]) + ($time[2] / 60);
+            } else if ($data_pegawai2[$key]['pulang_cepat']) {
+                $time2 = explode(':', $data_pegawai2[$key]['swp']);
+                $wmp[$key] = ($time2[0] * 60) + ($time2[1]) + ($time2[2] / 60);
+            } else if ($data_pegawai2[$key]['lembur']) {
+                // } else {
+                $time3 = explode(':', $data_pegawai2[$key]['swp']);
+                $wmp2[$key] = ($time3[0] * 60) + ($time3[1]) + ($time3[2] / 60);
+            }
+        }
 
 
         // switch (true) {
