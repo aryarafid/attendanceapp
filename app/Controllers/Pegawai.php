@@ -60,26 +60,44 @@ class Pegawai extends BaseController
                 $time3 = explode(':', $data_pegawai2[$i]['swp']);
                 $wmp2[$i] = ($time3[0] * 60) + ($time3[1]) + ($time3[2] / 60);
             }
-
-            // switch (true) {
-            //     case $data_pegawai2[$i]['telat']:
-            //         $time = explode(':', $data_pegawai2[$i]['swm']);
-            //         $wmm[$i] = ($time[0] * 60) + ($time[1]) + ($time[2] / 60);
-            //         // break;
-            //     case $data_pegawai2[$i]['pulang_cepat']:
-            //         $time2 = explode(':', $data_pegawai2[$i]['swp']);
-            //         $wmp[$i] = ($time2[0] * 60) + ($time2[1]) + ($time2[2] / 60);
-            //         // break;
-            //     case $data_pegawai2[$i]['lembur']:
-            //         $time3 = explode(':', $data_pegawai2[$i]['swp']);
-            //         $wmp2[$i] = ($time3[0] * 60) + ($time3[1]) + ($time3[2] / 60);
-            //         // break;
-
-            //     default:
-            //         // echo 'default';
-            //         // break;
-            // }
         }
+
+        
+
+        // foreach ($data_pegawai2 as $key => $value) {
+        //     if ($data_pegawai2[$key]['telat']) {
+        //         $time = explode(':', $data_pegawai2[$i]['swm']);
+        //         $wmm[$i] = ($time[0] * 60) + ($time[1]) + ($time[2] / 60);
+        //     } else if ($data_pegawai2[$i]['pulang_cepat']) {
+        //         $time2 = explode(':', $data_pegawai2[$i]['swp']);
+        //         $wmp[$i] = ($time2[0] * 60) + ($time2[1]) + ($time2[2] / 60);
+        //     } else if ($data_pegawai2[$i]['lembur']) {
+        //         // } else {
+        //         $time3 = explode(':', $data_pegawai2[$i]['swp']);
+        //         $wmp2[$i] = ($time3[0] * 60) + ($time3[1]) + ($time3[2] / 60);
+        //     }
+        // }
+
+
+        // switch (true) {
+        //     case $data_pegawai2[$i]['telat']:
+        //         $time = explode(':', $data_pegawai2[$i]['swm']);
+        //         $wmm[$i] = ($time[0] * 60) + ($time[1]) + ($time[2] / 60);
+        //         // break;
+        //     case $data_pegawai2[$i]['pulang_cepat']:
+        //         $time2 = explode(':', $data_pegawai2[$i]['swp']);
+        //         $wmp[$i] = ($time2[0] * 60) + ($time2[1]) + ($time2[2] / 60);
+        //         // break;
+        //     case $data_pegawai2[$i]['lembur']:
+        //         $time3 = explode(':', $data_pegawai2[$i]['swp']);
+        //         $wmp2[$i] = ($time3[0] * 60) + ($time3[1]) + ($time3[2] / 60);
+        //         // break;
+
+        //     default:
+        //         // echo 'default';
+        //         // break;
+        // }
+        // }
 
 
         // d($wmm);
