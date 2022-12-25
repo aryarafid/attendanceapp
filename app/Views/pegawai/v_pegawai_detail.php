@@ -1,6 +1,7 @@
 <?php
 ?>
-<?php $session = session(); ?>
+<?php $session = session();
+$no = 1; ?>
 
 <?= $this->extend('webframe') ?>
 <?= $this->section('content') ?>
@@ -23,30 +24,31 @@
         <div class="col-sm">
             <table class="table table-sm table-bordered table-striped">
                 <tr>
-                    <!-- <td>ID Pegawai</td>
+                    <td>ID Pegawai</td>
                     <td style="width: 1px">:</td>
-                    <td>zaza<?//=
-                            //$data_pegawai['id_pegawai'];?></td>
-                    <td></td> -->
-                    <td>Jumlah Keterlambatan</td>
+                    <td><?= $data_pegawai['id_pegawai']; ?></td>
+                </tr>
+
+                <tr>
+                    <td>Nama Pegawai</td>
+                    <td style="width: 1px">:</td>
+                    <td> <?= $data_pegawai['nama_pegawai']; ?></td>
+                </tr>
+
+                <tr>
+                    <td>Total Waktu Keterlambatan</td>
                     <td style="width: 1px">:</td>
                     <td> <?= $sumtelat; ?> menit</td>
                 </tr>
-                
-                <tr>
-                    <!-- <td>Nama Pegawai</td>
-                    <td style="width: 1px">:</td>
-                    <td>zaza<?//=
-                            //$data_pegawai['nama_pegawai']; ?></td>
-                    <td></td> -->
 
-                    <td>Jumlah Pulang Cepat</td>
+                <tr>
+                    <td>Total Waktu Pulang Cepat</td>
                     <td style="width: 1px">:</td>
                     <td> <?= $sumpulcep; ?> menit</td>
 
                 </tr>
                 <tr>
-                    <td>Jumlah Lembur</td>
+                    <td>Total Waktu Lembur</td>
                     <td style="width: 1px">:</td>
                     <td> <?= $sumlembur; ?> menit</td>
 
@@ -67,31 +69,37 @@
                         <th style="text-align:center;">Tanggal Absen</th>
                         <th style="text-align:center;">Waktu Masuk</th>
                         <th style="text-align:center;">Waktu Pulang</th>
-                        <th style="text-align:center;">Selisih Wkt Masuk</th>
-                        <th style="text-align:center;">Selisih Wkt Pulang</th>
+                        <!-- <th style="text-align:center;">Selisih Wkt Masuk</th>
+                        <th style="text-align:center;">Selisih Wkt Pulang</th> -->
 
-                        <!-- <th style="text-align:center;">Aksi</th> -->
+                        <th style="text-align:center;">Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php foreach ($data_pegawai as $dp) {
                     ?>
-                        <tr>
-                            <td style="text-align:center; padding:1.2em;"><?= $dp['id_pegawai']; 
-                                                                                        ?></td>
-                            <td style="text-align:center; padding:1.2em;"><?= $dp['nama_pegawai']; 
-                                                                            ?></td>
-                            <td style="text-align:center; padding:1.2em;"><?= $dp['tanggal_absen']; ?></td>
-                            <td style="text-align:center; padding:1.2em;"><?= $dp['waktu_masuk']; ?></td>
-                            <td style="text-align:center; padding:1.2em;"><?= $dp['waktu_pulang']; ?></td>
-                            <td style="text-align:center; padding:1.2em;"><?= $dp['swm']; ?></td>
-                            <td style="text-align:center; padding:1.2em;"><?= $dp['swp']; ?></td>
+                    <tr>
+                        <td style="text-align:center; padding:1.2em;"><?= $dp['id_pegawai'];
+                    ?></td>
+                        <td style="text-align:center; padding:1.2em;"><?= $dp['nama_pegawai'];
+                    ?></td>
+                        <td style="text-align:center; padding:1.2em;"><?= $dp['tanggal_absen']; ?></td>
+                        <td style="text-align:center; padding:1.2em;"><?= $dp['waktu_masuk']; ?></td>
+                        <td style="text-align:center; padding:1.2em;"><?= $dp['waktu_pulang']; ?></td>
+                        <!-- <td style="text-align:center; padding:1.2em;"><?//= $dp['swm']; ?></td>
+                            <td style="text-align:center; padding:1.2em;"><?//= $dp['swp']; ?></td> -->
 
-                            <!-- <td class="align-middle">
-                                <button type="button" class="btn btn-success">Edit</button>
-                                <button type="button" class="btn btn-danger">Delete</button>
-                            </td> -->
-                        </tr>
+                        <td class="text-center">
+                            <button type="button" class="btn btn-success">
+                                <i class="bi bi-pencil"></i>
+                            </button>
+
+                            <button type="button" class="btn btn-danger">
+                                <i class="bi bi-trash"></i>
+                            </button>
+
+                        </td>
+                    </tr>
                     <?php } ?>
                 </tbody>
             </table>

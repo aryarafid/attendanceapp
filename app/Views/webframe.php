@@ -15,8 +15,14 @@ $uri = service('uri');
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
     <link href="<?= base_url(); ?>/public/css/style2.css" rel="stylesheet" />
     <link href="<?= base_url(); ?>/public/css/styles.css" rel="stylesheet" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@mdi/font@6.9.96/css/materialdesignicons.min.css"></script> -->
+    <!-- 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"
+        crossorigin="anonymous"></script> -->
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
 </head>
 
 <body class="sb-nav-fixed">
@@ -24,7 +30,8 @@ $uri = service('uri');
         <!-- Navbar Brand-->
         <a class="navbar-brand ps-3" href="<?= base_url(); ?>">Aplikasi Absensi</a>
         <!-- Sidebar Toggle-->
-        <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+        <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i
+                class="fas fa-bars"></i></button>
         <!-- Navbar Search-->
         <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
             <div class="input-group">
@@ -45,15 +52,18 @@ $uri = service('uri');
             <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                 <div class="sb-sidenav-menu">
                     <div class="nav">
-                        <a class="nav-link <?= ($uri->getSegment(1) == '' ? 'active' : null) ?>" href="<?= base_url(); ?>">
+                        <a class="nav-link <?=($uri->getSegment(1) == '' ? 'active' : null) ?>"
+                            href="<?= base_url(); ?>">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             Dashboard
                         </a>
-                        <a class="nav-link <?= ($uri->getSegment(1) == 'absensi' ? 'active' : null) ?>" href="<?= base_url(); ?>/absensi/">
+                        <a class="nav-link <?=($uri->getSegment(1) == 'absensi' ? 'active' : null) ?>"
+                            href="<?= base_url(); ?>/absensi/">
                             <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                             Absensi
                         </a>
-                        <a class="nav-link <?= ($uri->getSegment(1) == 'pegawai' ? 'active' : null) ?>" href="<?= base_url(); ?>/pegawai/">
+                        <a class="nav-link <?=($uri->getSegment(1) == 'pegawai' ? 'active' : null) ?>"
+                            href="<?= base_url(); ?>/pegawai/">
                             <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                             Pegawai
                         </a>
@@ -85,13 +95,23 @@ $uri = service('uri');
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+        crossorigin="anonymous"></script>
     <script src="<?= base_url(); ?>/public/js/scripts.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
     <script src="<?= base_url(); ?>/public/assets/demo/chart-area-demo.js"></script>
     <script src="<?= base_url(); ?>/public/assets/demo/chart-bar-demo.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
     <script src="<?= base_url(); ?>/public/js/datatables-simple-demo.js"></script>
+    <!-- <style>
+        .material-symbols-outlined {
+            font-variation-settings:
+                'FILL' 0,
+                'wght' 400,
+                'GRAD' 0,
+                'opsz' 48
+        }
+    </style> -->
 </body>
 
 </html>

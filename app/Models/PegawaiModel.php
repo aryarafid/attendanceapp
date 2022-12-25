@@ -96,63 +96,15 @@ class PegawaiModel extends Model
         return $sql;
     }
 
-    public function countThree($data) //count menit telat, lembur, pulang cepat in a $data array
-
+    public function findAllExclude()
     {
-        //$data[$i][number]
-        //kemungkinan - telat TRUE OR either pulcep OR lembur (telat v (pc v lemb))
-
-        //if telat = true   : swm covert masuk array telat
-        //if lembur = true  : swp covert masuk array lembur
-        //if pulcep = true  : swp covert masuk array pulcep
-
-        // return arr
-
-        $sum = 0;
-
-        $pattern = "/-/i";
-
-        for ($i = 0; $i < count($data); $i++) {
-            $data[$i]['xswm'] = preg_replace($pattern, "", $data[$i]['swm']);
-            $data[$i]['xswp'] = preg_replace($pattern, "", $data[$i]['swp']);
-            // if ($data[$i]) {
-            //     # code...
-            // }
-        }
-
-        return;
-
-    }
-
-    protected function hoursTominutes($time)
-    {
-        $time = explode(':', $time);
-        return ($time[0] * 60) + ($time[1]) + ($time[2] / 60);
-    }
-
-    public function converter($data)
-    {
-        //data -> array of data, modify swp and swm
-        $telat = 0;
-        $pulang_cepat = 0;
-        $lembur = 0;
-
-        for ($i = 0; $i < count($data); $i++) {
-            if ($data[$i]['telat'] === 1) {
-                $telat = $this->hourstominutes($data[$i]['swm']);
-            } elseif ($data[$i]['pulang_cepat'] === 1) {
-                $pulang_cepat = $this->hourstominutes($data[$i]['swp']);
-            } elseif ($data[$i]['lembur'] === 1) {
-                $lembur = $this->hourstominutes($data[$i]['swp']);
-            }
-        }
-
-        return $returnArray = array(
-            $telat,
-            $pulang_cepat,
-            $lembur
-        );
-
+        $db = \Config\Database::connect();
+        $sql = "SELECT * FROM pegawai WHERE pegawai.id_pegawai != '0000'";
+        $sql =
+            $db->query($sql, [
+            ]);
+        $sql = $sql->getResultArray();
+        return $sql;
     }
 
 }

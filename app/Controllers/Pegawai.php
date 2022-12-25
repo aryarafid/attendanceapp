@@ -17,7 +17,7 @@ class Pegawai extends BaseController
 
     public function index()
     {
-        $data_pegawai = $this->PegawaiModel->findAll();
+        $data_pegawai = $this->PegawaiModel->findAllExclude();
         $data = [
             'title' => "Manage Pegawai",
             'heading' => "Manage Pegawai",
@@ -28,11 +28,6 @@ class Pegawai extends BaseController
 
     public function pegawai_detail($id)
     {
-
-        // $data_pegawai = $this->PegawaiModel->getPegCountSelisih($id);
-        // $data_pegawai3 = $this->PegawaiModel->countThree($data_pegawai2);
-        // d($data_pegawai);
-
         $data_pegawai2 = $this->PegawaiModel->getPeg3($id);
         $wmm = array();
         $wmp = array();
@@ -48,22 +43,6 @@ class Pegawai extends BaseController
             $data_pegawai2[$i]['swp'] = preg_replace($pattern, "", $data_pegawai2[$i]['swp']);
         }
 
-        // for ($i = 0; $i < count($data_pegawai2); $i++) {
-        //     if ($data_pegawai2[$i]['telat']) {
-        //         $time = explode(':', $data_pegawai2[$i]['swm']);
-        //         $wmm[$i] = ($time[0] * 60) + ($time[1]) + ($time[2] / 60);
-        //     } else if ($data_pegawai2[$i]['pulang_cepat']) {
-        //         $time2 = explode(':', $data_pegawai2[$i]['swp']);
-        //         $wmp[$i] = ($time2[0] * 60) + ($time2[1]) + ($time2[2] / 60);
-        //     } else if ($data_pegawai2[$i]['lembur']) {
-        //         // } else {
-        //         $time3 = explode(':', $data_pegawai2[$i]['swp']);
-        //         $wmp2[$i] = ($time3[0] * 60) + ($time3[1]) + ($time3[2] / 60);
-        //     }
-        // }
-
-
-
         foreach ($data_pegawai2 as $key => $value) {
             if ($data_pegawai2[$key]['telat']) {
                 $time = explode(':', $data_pegawai2[$key]['swm']);
@@ -72,47 +51,22 @@ class Pegawai extends BaseController
                 $time2 = explode(':', $data_pegawai2[$key]['swp']);
                 $wmp[$key] = ($time2[0] * 60) + ($time2[1]) + ($time2[2] / 60);
             } else if ($data_pegawai2[$key]['lembur']) {
-                // } else {
                 $time3 = explode(':', $data_pegawai2[$key]['swp']);
                 $wmp2[$key] = ($time3[0] * 60) + ($time3[1]) + ($time3[2] / 60);
             }
         }
 
-
-        // switch (true) {
-        //     case $data_pegawai2[$i]['telat']:
-        //         $time = explode(':', $data_pegawai2[$i]['swm']);
-        //         $wmm[$i] = ($time[0] * 60) + ($time[1]) + ($time[2] / 60);
-        //         // break;
-        //     case $data_pegawai2[$i]['pulang_cepat']:
-        //         $time2 = explode(':', $data_pegawai2[$i]['swp']);
-        //         $wmp[$i] = ($time2[0] * 60) + ($time2[1]) + ($time2[2] / 60);
-        //         // break;
-        //     case $data_pegawai2[$i]['lembur']:
-        //         $time3 = explode(':', $data_pegawai2[$i]['swp']);
-        //         $wmp2[$i] = ($time3[0] * 60) + ($time3[1]) + ($time3[2] / 60);
-        //         // break;
-
-        //     default:
-        //         // echo 'default';
-        //         // break;
-        // }
-        // }
-
-
-        // d($wmm);
-        // d($wmp);
-        // d($wmp2);
-        d($data_pegawai2);
-
-
         $sumtelat = array_sum($wmm);
         $sumpulcep = array_sum($wmp);
         $sumlembur = array_sum($wmp2);
 
-        d($sumtelat);
-        d($sumpulcep);
-        dd($sumlembur);
+        // d($wmm);
+        // d($wmp);
+        // d($wmp2);
+        // dd($data_pegawai2);
+        // d($sumtelat);
+        // d($sumpulcep);
+        // dd($sumlembur);
 
         $data = [
             'title' => "Detail Pegawai",
@@ -126,7 +80,6 @@ class Pegawai extends BaseController
         return view('pegawai/v_pegawai_detail', $data);
     }
 
-    //count 3 categories
     public function add_pegawai_page()
     {
         # code...
